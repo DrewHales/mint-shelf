@@ -11,8 +11,11 @@ jobs:
   tests:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    env:
+      # The virtual display has no desktop accessibility bus.
+      NO_AT_BRIDGE: "1"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install test dependencies
         run: |
           sudo apt-get update
