@@ -1,0 +1,1 @@
+"""Mint Shelf clipboard manager."""
