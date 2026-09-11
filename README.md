@@ -1,5 +1,13 @@
 # Mint Shelf
 
+## Read this before installing
+
+**Mint Shelf was designed, developed and tested exclusively using GPT-6 Astra, without human technical oversight, code review or software-engineering expertise.** Human involvement was limited to requesting the project and describing the desired behaviour. The code, installer and tests have not been independently reviewed or validated by a human. Passing automated tests is not an assurance that the software is safe, secure, correct or suitable for your needs.
+
+**This project is offered strictly "AS IS" and "AS AVAILABLE", at your own risk.** No warranties or guarantees of any kind are provided. To the fullest extent permitted by applicable law, the authors, copyright holders and project publisher accept no liability for any claim, loss, damage or other consequence arising from using, installing, modifying or distributing this software. See the [MIT license](LICENSE) for the warranty disclaimer and limitation of liability.
+
+No support is offered. There is no commitment or current intention to maintain the project, fix bugs, provide security updates, add features or continue development. Issues and pull requests may receive no response or review. The source is shared for anyone who wishes to inspect, use or maintain their own copy under the MIT license.
+
 A lightweight clipboard shelf for Linux Mint Cinnamon. Press **Win+V**, find an item, and click it or press **Enter** to paste it directly into the application you opened the shelf from.
 
 Built with Python 3, GTK 3 and Cinnamon's XApp tray integration. It follows your GTK theme, including light/dark themes and accent colours. It runs in the background and captures the explicit clipboard without polling or watching primary text selection.
@@ -118,8 +126,9 @@ This removes the installed app, launcher, autostart and its shortcut while retai
 
 ## Contributing
 
-Bug reports, feature suggestions and pull requests are welcome. See
-[CONTRIBUTING.md](CONTRIBUTING.md) for setup, testing and reporting guidance.
+You may fork and modify the project under the MIT license. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for setup and testing guidance, but do not
+expect support, a response to issues, review of pull requests or future releases.
 Use sample clipboard content when sharing screenshots or error reports.
 
 ## License
