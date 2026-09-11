@@ -1,0 +1,42 @@
+name: Release installer
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag to build
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      NO_AT_BRIDGE: "1"
+      RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
+          persist-credentials: false
+      - name: Install test dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-gi gir1.2-gtk-3.0 xvfb xauth
+      - name: Verify and package
+        run: |
+          bash -n install.sh
+          xvfb-run -a /usr/bin/python3 -m unittest discover -s tests -v
+          /usr/bin/python3 scripts/build_release.py "${RELEASE_TAG#v}"
+          cd dist
+          sha256sum -c SHA256SUMS
+      - name: Attach installer and checksum to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$RELEASE_TAG" dist/*.tar.gz dist/SHA256SUMS --repo "$GITHUB_REPOSITORY" --clobber

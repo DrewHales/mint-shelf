@@ -13,3 +13,4 @@ venv/
 .vscode/
 *.log
 .DS_Store
+dist/

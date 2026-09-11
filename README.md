@@ -21,6 +21,33 @@ The shelf stays open when you click elsewhere. Select an item, press Escape, pre
 Developed on Linux Mint 22.3 Cinnamon using X11. Wayland is not supported.
 Mint Shelf is an independent community project and is not affiliated with Linux Mint.
 
+### Download and install
+
+Open the [latest release](https://github.com/DrewHales/mint-shelf/releases/latest)
+and download the **mint-shelf-VERSION-linux-mint.tar.gz** installer under **Assets**.
+Extract it, open the extracted folder, right-click an empty area and choose
+**Open in Terminal**. Run:
+
+```sh
+bash install.sh
+```
+
+Run this as your normal user, without `sudo`. The installer checks the desktop,
+offers to install missing system dependencies using your administrator password,
+then installs and starts Mint Shelf for your account. Press **Win+V** to open it.
+If Win+V is already assigned, the installer reports the conflict; change that
+assignment in Cinnamon's keyboard settings and run the installer again.
+
+For updates, download and extract the new release and run its installer. History,
+settings and your login-startup preference are retained. Keep the extracted folder
+if you want to use `bash install.sh --uninstall` later. You can check compatibility
+without installing anything with `bash install.sh --check`.
+
+The download includes the Python source; no compiling is needed. A `SHA256SUMS`
+file is supplied alongside it for verifying the download.
+
+### Install manually from source
+
 Install the system dependencies in a terminal:
 
 ```sh
